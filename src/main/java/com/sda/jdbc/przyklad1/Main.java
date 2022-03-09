@@ -20,14 +20,11 @@ public class Main {
 
             ResultSet resultSet = statement.executeQuery(query);
 
-
             while (resultSet.next()) {
                 System.out.println("Country ID "+ resultSet.getInt("CO_ID"));
                 System.out.println("Country Name "+ resultSet.getString("CO_NAME"));
                 System.out.println("Country Alias "+ resultSet.getString("CO_ALIAS"));
             }
-
-
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
