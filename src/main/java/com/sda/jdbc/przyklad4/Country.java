@@ -6,6 +6,11 @@ public class Country {
     private String name;
     private String alias;
 
+    public Country(String name, String alias) {
+        this.name = name;
+        this.alias = alias;
+    }
+
     public Country(Integer id, String name, String alias) {
         this.id = id;
         this.name = name;
