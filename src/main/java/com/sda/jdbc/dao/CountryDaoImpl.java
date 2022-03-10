@@ -63,6 +63,17 @@ public class CountryDaoImpl implements CountryDao {
 
     @Override
     public boolean deleteCountry(int id) {
+        if (findById(id) != null) {
+            String deleteQuery = "DELETE FROM Country where CO_ID = ?";
+            try(PreparedStatement preparedStatement = getConnection().prepareStatement(deleteQuery)) {
+                preparedStatement.setInt(CO_ID_PARAMETER_INDEX, id);
+                preparedStatement.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+                return false;
+            }
+            return true;
+        }
         return false;
     }
 

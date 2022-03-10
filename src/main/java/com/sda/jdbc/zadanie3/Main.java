@@ -10,5 +10,6 @@ public class Main {
         countryDao.getAll().forEach(System.out::println);
         System.out.println(countryDao.findById(3));
         countryDao.addNewCountry(new Country("Ukaine", "UA"));
+        System.out.println(countryDao.deleteCountry(6));
     }
 }
