@@ -7,5 +7,7 @@ import java.util.List;
 public interface CountryDao {
 
     List<Country> getAll();
+    //jeżeli nie znajdzie - zwróć null
+    Country findById(int id);
 
 }
