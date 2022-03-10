@@ -13,6 +13,10 @@ public class CountryDaoImpl implements CountryDao {
     private static final int CO_NAME_PARAMETER_INDEX = 1;
     private static final int CO_ALIAS_PARAMETER_INDEX = 2;
 
+    private static final int CO_NAME_PARAMETER_UPDATE = 1;
+    private static final int CO_ALIAS_PARAMETER_UPDATE = 2;
+    private static final int CO_ID_PARAMETER_UPDATE = 3;
+
     @Override
     public List<Country> getAll() {
         List<Country> countries = new ArrayList<>();
@@ -79,7 +83,26 @@ public class CountryDaoImpl implements CountryDao {
 
     @Override
     public void updateCountry(Country country) {
+        if (country.getId() != null && findById(country.getId()) != null) {
+            String updateQuery = "Update Country " +
+                            "SET CO_NAME = ?, " +
+                            "CO_ALIAS = ? " +
+                            "WHERE CO_ID = ?";
 
+            try(PreparedStatement preparedStatement = getConnection().prepareStatement(updateQuery)) {
+                preparedStatement.setString(CO_NAME_PARAMETER_UPDATE, country.getName());
+                preparedStatement.setString(CO_ALIAS_PARAMETER_UPDATE, country.getAlias());
+                preparedStatement.setInt(CO_ID_PARAMETER_UPDATE, country.getId());
+
+                preparedStatement.executeUpdate();
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            }
+
+        } else {
+            addNewCountry(country);
+        }
     }
 
     private Country mapResultSetToCountry(ResultSet resultSet) throws SQLException {

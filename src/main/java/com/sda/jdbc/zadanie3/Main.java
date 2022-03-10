@@ -11,5 +11,8 @@ public class Main {
         System.out.println(countryDao.findById(3));
         countryDao.addNewCountry(new Country("Ukaine", "UA"));
         System.out.println(countryDao.deleteCountry(6));
+        //Country country = countryDao.findById(1);
+        //country.setName("Polska");
+        countryDao.updateCountry(new Country("Polska", "PL"));
     }
 }

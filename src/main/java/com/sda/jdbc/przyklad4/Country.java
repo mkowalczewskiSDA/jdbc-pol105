@@ -37,4 +37,16 @@ public class Country {
                 ", alias='" + alias + '\'' +
                 '}';
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAlias(String alias) {
+        this.alias = alias;
+    }
 }
