@@ -10,5 +10,8 @@ public interface CountryDao {
     //jeżeli nie znajdzie - zwróć null
     Country findById(int id);
     void addNewCountry(Country country);
+    //probujemy usunac kraj, jeżeli się udało to true, jeżeli taki kraj nie istnieje
+    //to false - zweryfikuj czy kraj istnieje zanim, spróbujesz go usunąć
+    boolean deleteCountry(int id);
 
 }
