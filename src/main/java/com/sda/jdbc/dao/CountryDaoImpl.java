@@ -16,7 +16,7 @@ public class CountryDaoImpl implements CountryDao {
     public List<Country> getAll() {
         List<Country> countries = new ArrayList<>();
 
-        String sqlSelect = "SELECT * FROM country";
+        String sqlSelect = "SELECT * FROM Country";
 
         try (Statement statement = getConnection().createStatement()) {
             ResultSet resultSet = statement.executeQuery(sqlSelect);
