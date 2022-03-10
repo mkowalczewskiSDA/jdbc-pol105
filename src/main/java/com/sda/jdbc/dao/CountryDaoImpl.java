@@ -77,6 +77,11 @@ public class CountryDaoImpl implements CountryDao {
         return false;
     }
 
+    @Override
+    public void updateCountry(Country country) {
+
+    }
+
     private Country mapResultSetToCountry(ResultSet resultSet) throws SQLException {
         return new Country(resultSet.getInt("CO_ID"), resultSet.getString("CO_NAME"), resultSet.getString("CO_ALIAS"));
     }
